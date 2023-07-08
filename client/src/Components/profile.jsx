@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { query, collection, where, getDocs, doc, getDoc } from 'firebase/firestore';
-import Form from './Form';
+import Form from './Form.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [teacher, setTeacher] = useState('');
+  const [isComponentVisible, setComponentVisible] = useState(false);
+
   const nav = useNavigate();
   if (auth?.currentUser) {
     const id = auth?.currentUser?.email;
@@ -29,7 +31,7 @@ const Profile = () => {
     func();
   }
   const renderForm = () => {
-    nav('/register');
+    setComponentVisible(true);
   }
 
   return (
@@ -52,6 +54,7 @@ const Profile = () => {
         <div class="container-flex">
           <div className="row gy-5">
             <button type="button" class="btn btn-primary  " onClick={renderForm}>Add new Student</button>
+            {isComponentVisible && <Form />}
           </div>
           <div className="row gy-5">
             <button type="button" class="btn btn-primary">Update</button>
