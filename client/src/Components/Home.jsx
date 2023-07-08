@@ -2,27 +2,26 @@ import React from 'react';
 
 import Profile from './Profile'
 import AnalysisContain from './AnalysisContain'
-import Navbar from './Navbar'
+
 
 
 const Home = () => {
-  function onClick() {
-    alert("Button clicked!");
+  function button1Clicked() {
+    alert("Button 1 clicked!");
+  }
+  
+  function button2Clicked() {
+    alert("Button 2 clicked!");
+  }
   return (
     <div className="home">
-
-     
-     <Navbar />
+      <button onclick="button1Clicked()">Add New Student</button>
+  <button onclick="button2Clicked()">Edit</button>
+  
+  
+    
     <Profile />
-    <AnalysisContain />
-    <div>
-      <button className='add-stu'
-        onClick={addStudent()}> Add a Student</button>
-      <button> Add a Student</button>
-    </div> 
-        
-      
-      
+    <AnalysisContain />  
     </div>
   );
 };
