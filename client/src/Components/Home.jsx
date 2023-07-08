@@ -1,37 +1,28 @@
-// import React from 'react';
-import React,{useEffect, useState} from 'react'
-// import './Home.css';
-import { auth } from '../firebase-config';
-import {onAuthStateChanged} from 'firebase/auth'
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+
+import Profile from './Profile'
+import AnalysisContain from './AnalysisContain'
+import Navbar from './Navbar'
+
 
 const Home = () => {
-  const [user,setUser]=useState('');
-  onAuthStateChanged(auth,(user1)=>{
-    if(user1){
-      setUser(user1.uid);
-    }
-  })
-  const nav=useNavigate();
-
-  useEffect(()=>{
-    if(!user){
-      nav('/register')
-    }
-
-  },[]);
-
+  function onClick() {
+    alert("Button clicked!");
   return (
     <div className="home">
-      <header>
-        <h1>Welcome to My Website</h1>
-      </header>
-      <section>
-        <p>This is the home page of my React.js website.</p>
-      </section>
-      <footer>
-        <p>© 2023 My Website. All rights reserved.</p>
-      </footer>
+
+     
+     <Navbar />
+    <Profile />
+    <AnalysisContain />
+    <div>
+      <button className='add-stu'
+        onClick={addStudent()}> Add a Student</button>
+      <button> Add a Student</button>
+    </div> 
+        
+      
+      
     </div>
   );
 };
