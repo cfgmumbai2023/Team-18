@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Profile from './Profile'
+import profile from './profile'
 import AnalysisContain from './AnalysisContain'
 
 
@@ -9,6 +9,7 @@ const Home = () => {
   function button1Clicked() {
     alert("Button 1 clicked!");
   }
+}
   
   function button2Clicked() {
     alert("Button 2 clicked!");
