@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { query, collection, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 import Form from './Form.jsx';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,6 +63,15 @@ const Profile = () => {
         </div>
       </div>
     </div>
+<div className="row gy-5">
+<Link to='/form' type="button" class="btn btn-primary  ">Add new Student</Link>
+</div>
+<div className="row gy-5">
+<button type="button" class="btn btn-primary">Update</button>
+</div>
+</div>
+    </div>
+</div>
 
   );
 };
