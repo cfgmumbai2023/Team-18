@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase-config';
+import { auth, db } from '../firebase-config';
 
 
 // import React from 'react'
 import './style.css'
+import { addDoc, collection } from 'firebase/firestore';
 // import { Link } from 'react-router-dom'
 const Register = () => {
     const [firstName,setFirstName]=useState('');
@@ -16,7 +17,12 @@ const Register = () => {
     
     const register=async(e)=>{
       e.preventDefault();
+      const colRef=collection(db,'teachers1');
       try{
+          await addDoc(colRef,{
+            firstName,secName,email,
+            id:auth?.currentUser?.uid
+          })
         console.log(email, password);
         const res=await createUserWithEmailAndPassword(auth,email,password);
         

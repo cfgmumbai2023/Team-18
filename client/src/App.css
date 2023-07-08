@@ -23,6 +23,14 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
+
+  .userProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    float:left;
+    
+  }
   
   .App-link {
     color: #61dafb;

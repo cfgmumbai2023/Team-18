@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Images/logo.jpeg';
-import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../firebase-config';
 
 const Navbar = () => {
+    const [user,setUser]=useState({});
+    useEffect(
+    onAuthStateChanged(auth,user1=>{
+        if(user1){
+            setUser(user1)
+        }
+    }),[])
+    const navi=useNavigate();
+    const logOut=async()=>{
+        await signOut(auth)
+        navi('/register')
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
@@ -38,7 +51,7 @@ const Navbar = () => {
                             <Link className="nav-link" to="#">Contact Us</Link>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link" onClick={()=>signOut(auth)}>Sign Out</button>
+                            {user && <button className="nav-link" onClick={()=>logOut}>Sign Out</button>}
                         </li>
                     </ul>
                 </div>

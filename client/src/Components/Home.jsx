@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Profile from './Profile'
 import AnalysisContain from './AnalysisContain'
 import Navbar from './Navbar'
+import { auth } from '../firebase-config';
+import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
   function onClick() {
     alert("Button clicked!");
+  }
+  const his=useNavigate();
+  const user=auth?.currentUser?.uid;
+  useEffect(()=>{
+    console.log('home',user)
+    if(!user){
+      his('/register');
+    }
+  },[])
   return (
     <div className="home">
-
-     
-     <Navbar />
+      {/* <h1>hi</h1> */}
     <Profile />
-    <AnalysisContain />
+    {/* <AnalysisContain /> */}
     <div>
-      <button className='add-stu'
-        onClick={addStudent()}> Add a Student</button>
-      <button> Add a Student</button>
+      
     </div> 
         
       
