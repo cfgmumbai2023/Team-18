@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../firebase-config';
@@ -9,30 +9,30 @@ import './style.css'
 import { addDoc, collection } from 'firebase/firestore';
 // import { Link } from 'react-router-dom'
 const Register = () => {
-    const [firstName,setFirstName]=useState('');
-    const [secName,setSecName]=useState('');
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
-    const nav=useNavigate();
-    
-    const register=async(e)=>{
-      e.preventDefault();
-      const colRef=collection(db,'teachers1');
-      try{
-          await addDoc(colRef,{
-            firstName,secName,email,
-            id:auth?.currentUser?.uid
-          })
-        console.log(email, password);
-        const res=await createUserWithEmailAndPassword(auth,email,password);
-        
-        nav('/home')
-        console.log('btn tapped');
+    const nav = useNavigate();
+    const [firstName, setFirstName] = useState('');
+    const [secName, setSecName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-      } 
-      catch(e){
-        console.log(e);
-      } 
+    const register = async (e) => {
+        e.preventDefault();
+        const colRef = collection(db, 'teachers1');
+        try {
+            await addDoc(colRef, {
+                firstName, secName, email,
+                //id:auth?.currentUser?.uid
+            })
+            console.log(email, password);
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+
+            nav('/home')
+            console.log('btn tapped');
+
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 
     return (
@@ -42,19 +42,19 @@ const Register = () => {
                     <h3 className='text-center'>Sign Up</h3>
                     <div className='mb-2'>
                         <label htmlFor="fname">First Name</label>
-                        <input type="text" placeholder='Enter First Name' className='form-control' onChange={(e)=>{setFirstName(e.target.value)}}/>
+                        <input type="text" placeholder='Enter First Name' className='form-control' onChange={(e) => { setFirstName(e.target.value) }} />
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="lname">Last Name</label>
-                        <input type="text" placeholder='Enter Last Name' className='form-control' onChange={(e)=>{setSecName(e.target.value)}}/>
+                        <input type="text" placeholder='Enter Last Name' className='form-control' onChange={(e) => { setSecName(e.target.value) }} />
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="email">Email</label>
-                        <input type="email" placeholder='Enter Email' className='form-control' onChange={(e)=>{setEmail(e.target.value)}}/>
+                        <input type="email" placeholder='Enter Email' className='form-control' onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                     <div classame="mb-2">
                         <label htmlFor="password">Password</label>
-                        <input type="password" placeholder='Enter Password' className='form-control' onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <input type="password" placeholder='Enter Password' className='form-control' onChange={(e) => { setPassword(e.target.value) }} />
                     </div>
                     <div className='d-grid mt-2'>
                         <button className="btn btn-primary">Sign Up</button>
