@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { query ,collection,where, getDocs, doc, getDoc} from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 const Profile = () => {
   const [teacher,setTeacher]=useState('');
 if(auth?.currentUser){
@@ -21,7 +22,7 @@ const unsub=querySnapshot.forEach((doc) => {
   console.log(doc.id, " => ", doc.data());
   setTeacher(doc.data())
 });
-unsub();
+return unsub;
 }
 func();
 }
@@ -45,7 +46,7 @@ func();
         </div>
         <div class="container-flex">
 <div className="row gy-5">
-<button type="button" class="btn btn-primary  ">Add new Student</button>
+<Link to='/form' type="button" class="btn btn-primary  ">Add new Student</Link>
 </div>
 <div className="row gy-5">
 <button type="button" class="btn btn-primary">Update</button>
