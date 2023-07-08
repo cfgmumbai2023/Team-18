@@ -32,9 +32,9 @@ func();
         <div class="card-body text-center">
             <img src="/" alt="avatar"
                 class="rounded-circle img-fluid" />
-            <h5 class="my-3">Mr. Rohan</h5>
-            <p class="text-muted mb-1">{teacher.firstName}</p>
-            <p class="text-muted mb-1">{teacher.SecName}</p>
+            {/* <h5 class="my-3">Mr. Rohan</h5> */}
+            <p class="text-muted mb-1 ">{teacher.firstName}</p>
+            <p class="text-muted mb-1">{teacher.secName}</p>
             <p class="text-muted mb-4">{teacher.email}</p>
             <div class="d-flex justify-content-center mb-2">
 
