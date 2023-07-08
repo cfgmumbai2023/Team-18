@@ -16,11 +16,12 @@ if(auth?.currentUser){
   // console.log(id);
   const func=async()=>{
   const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
+const unsub=querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
   setTeacher(doc.data())
 });
+unsub();
 }
 func();
 }
