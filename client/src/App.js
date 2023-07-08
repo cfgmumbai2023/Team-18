@@ -1,12 +1,20 @@
 import './App.css';
-import Form from './Components/Form.jsx';
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './Components/Login';
+import Register from './Components/Register';
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
