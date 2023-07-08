@@ -20,8 +20,8 @@ const Register = () => {
       const colRef=collection(db,'teachers1');
       try{
           await addDoc(colRef,{
-            firstName,secName,email,
-            id:auth?.currentUser?.uid
+            firstName,secName,email
+            // id:auth?.currentUser?.uid
           })
         console.log(email, password);
         const res=await createUserWithEmailAndPassword(auth,email,password);
