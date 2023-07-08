@@ -19,6 +19,7 @@ const Register = () => {
       try{
         console.log(email, password);
         const res=await createUserWithEmailAndPassword(auth,email,password);
+        
         nav('/home')
         console.log('btn tapped');
 

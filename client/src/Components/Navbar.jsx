@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../Images/logo.jpeg';
 import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase-config';
 
 const Navbar = () => {
     return (
@@ -34,6 +36,9 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="#">Contact Us</Link>
+                        </li>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={()=>signOut(auth)}>Sign Out</button>
                         </li>
                     </ul>
                 </div>
