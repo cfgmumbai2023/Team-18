@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Profile from './Profile'
+import profile from './profile'
 import AnalysisContain from './AnalysisContain'
 import Navbar from './Navbar'
 import { auth } from '../firebase-config';
