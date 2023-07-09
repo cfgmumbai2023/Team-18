@@ -73,7 +73,7 @@ const Profile = () => {
             <button type="button" class="btn btn-primary">Update</button>
           </div> */}
         </div >
-        <div><Chart/></div>
+        {/* <div><Chart/></div> */}
       </div >
     </div >
 
