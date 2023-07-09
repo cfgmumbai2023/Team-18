@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { addDoc, collection } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
-
+import './Forms.css'
 
 
 const Form = () => {
@@ -52,10 +52,12 @@ const Form = () => {
 
     return (
         <div className="container">
+            
             <div className="row justify-content-center" id="form1">
+            <div id = 'forms'>
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-body">
+                        <div className="card-body my-4">
                             <h5 className="card-title">Child's Personal Information</h5>
 
                             <form >
@@ -206,6 +208,128 @@ const Form = () => {
 
                                 <button type="submit" className="btn btn-primary" onClick={()=>submitForm}>Submit</button>
                             </form>
+                        </div>
+                        </div>
+
+                        <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Editing parameters of child</h5>
+
+                            <form >
+
+                                <div className="mb-3">
+                                    <label className="form-label">Child Name: </label>
+                                    <input
+                                        type="text"
+
+                                        name="childName"
+                                    />
+                                </div>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Arithmetic - Addition</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Arithmetic - Subtraction</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Arithmetic - Multiplication</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Arithmetic - Division</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Voculabary - Speaking skills</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Voculabary - Writing skills</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Voculabary - Reading skills</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Activity - Lemon Sharbat Making</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Activity - Stamping the design</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Activity - Mumbai Map Topography</label>
+                                    <input
+                                        type="number"
+
+                                        name="age"
+
+                                    />
+
+                                </div>              
+
+                                <button type="submit" className="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
