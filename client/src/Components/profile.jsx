@@ -4,6 +4,7 @@ import { query, collection, where, getDocs, doc, getDoc } from 'firebase/firesto
 import { Link } from 'react-router-dom';
 import Form from './Form.jsx';
 import { useNavigate } from 'react-router-dom';
+import Chart from './chart.jsx'
 
 const Profile = () => {
   const [teacher, setTeacher] = useState('');
@@ -72,6 +73,7 @@ const Profile = () => {
             <button type="button" class="btn btn-primary">Update</button>
           </div> */}
         </div >
+        <div><Chart/></div>
       </div >
     </div >
 
