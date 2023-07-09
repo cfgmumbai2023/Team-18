@@ -8,6 +8,7 @@ import {onAuthStateChanged} from 'firebase/auth'
 import { useState } from 'react';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import Chart from './Components/chart';
  
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
         <Route path='/home' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        
+        <Route path='/chart' element={<Chart />}></Route>
 
       </Routes>
     </Router>

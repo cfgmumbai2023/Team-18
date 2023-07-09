@@ -6,18 +6,25 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../firebase-config';
 
 const Navbar = () => {
-    const [user,setUser]=useState({});
-    useEffect(
-    onAuthStateChanged(auth,user1=>{
-        if(user1){
-            setUser(user1)
-        }
-    }),[])
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user1) => {
+            if (user1) {
+                setUser(user1);
+            }
+        });
+
+        return () => {
+            unsubscribe(); // Clean up the subscription when the component unmounts
+        };
+    }, []);
+
     const navi=useNavigate();
     const logOut=async()=>{
         await signOut(auth)
         navi('/register')
     }
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,7 +58,7 @@ const Navbar = () => {
                             <Link className="nav-link" to="#">Contact Us</Link>
                         </li>
                         <li className="nav-item">
-                            {user && <button className="nav-link" onClick={()=>logOut}>Sign Out</button>}
+                            {user && <button className="nav-link" onClick={() => logOut}>Sign Out</button>}
                         </li>
                     </ul>
                 </div>

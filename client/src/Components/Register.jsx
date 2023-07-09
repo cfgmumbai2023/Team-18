@@ -21,7 +21,7 @@ const Register = () => {
       try{
           await addDoc(colRef,{
             firstName,secName,email,
-            id:auth?.currentUser?.uid
+            // id:auth?.currentUser?.uid
           })
         console.log(email, password);
         const res=await createUserWithEmailAndPassword(auth,email,password);
