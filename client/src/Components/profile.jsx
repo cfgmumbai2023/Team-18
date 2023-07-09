@@ -61,7 +61,7 @@ const Profile = () => {
                   {isComponentVisible && <Form />}
                 </div>
                 <div className="row gy-5">
-                  <button type="button" class="btn btn-primary">Update</button>
+                  <button type="button" class="btn btn-primary" onClick={renderForm}>Update</button>
                 </div>
               </div>
             </div>
@@ -72,9 +72,11 @@ const Profile = () => {
           <div className="row gy-5">
             <button type="button" class="btn btn-primary">Update</button>
           </div> */}
+          <Chart/>
         </div >
         {/* <div><Chart/></div> */}
       </div >
+      
     </div >
 
   );

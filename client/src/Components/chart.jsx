@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./chart.css";
 import BarChart from "./Charts/BarChart";
 import LineChart from "./Charts/LineChart";
 import PieChart from "./Charts/PieChart";
@@ -41,7 +41,19 @@ const Chart = () => {
             <div style={{ width: 700 }}>
                 <PieChart chartData={userData} />
             </div>
+            <div className="summary">
+                <h1>Summary</h1>
+                <p>Class that is underperforming; Arithmetic</p>
+                <p>Following are the list of students that are underperforming</p>
+                <ul>
+                    <li>Aman</li>
+                    <li>Deepak</li>
+                </ul>
+
+            </div>
         </div>
+
+        
     );
 }
 export default Chart;
