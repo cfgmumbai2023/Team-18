@@ -9,25 +9,25 @@ import './style.css'
 import { addDoc, collection } from 'firebase/firestore';
 // import { Link } from 'react-router-dom'
 const Register = () => {
-    const nav = useNavigate();
-    const [firstName, setFirstName] = useState('');
-    const [secName, setSecName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const register = async (e) => {
-        e.preventDefault();
-        const colRef = collection(db, 'teachers1');
-        try {
-            await addDoc(colRef, {
-                firstName, secName, email,
-                //id:auth?.currentUser?.uid
-            })
-            console.log(email, password);
-            const res = await createUserWithEmailAndPassword(auth, email, password);
-
-            nav('/home')
-            console.log('btn tapped');
+    const [firstName,setFirstName]=useState('');
+    const [secName,setSecName]=useState('');
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    const nav=useNavigate();
+    
+    const register=async(e)=>{
+      e.preventDefault();
+      const colRef=collection(db,'teachers1');
+      try{
+          await addDoc(colRef,{
+            firstName,secName,email,
+            // id:auth?.currentUser?.uid
+          })
+        console.log(email, password);
+        const res=await createUserWithEmailAndPassword(auth,email,password);
+        
+        nav('/home')
+        console.log('btn tapped');
 
         }
         catch (e) {
